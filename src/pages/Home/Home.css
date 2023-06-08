@@ -1,0 +1,16 @@
+.sub-header{
+    background-image:  url(../../assets/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  background-position: center;
+  margin-top: 66px;
+  padding: 4px;
+  gap: 4rem;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
