@@ -5,7 +5,7 @@ import Footer from "../../components/common/footer/Footer.js";
 import { Typography } from "@mui/material";
 import "../Home/Home.css";
 import Header from "../../components/common/header/Header.js";
-import Carosule from "../../components/common/carosule/Carosule.js";
+// import Carosule from "../../components/common/carosule/Carosule.js";
 import Banner from "./Banner.js";
 import Carosule1 from "../../components/common/carosule/Carosule1.js";
 import Work from "../../components/common/howitworks/Work.js";
