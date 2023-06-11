@@ -1,16 +1,31 @@
-.sub-header{
-    background-image:  url(../../assets/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+.sub-header {
+  background-image: url(../../assets/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
   margin-top: 66px;
-  padding: 4px;
+
   gap: 4rem;
   color: #fff;
   font-size: 20px;
   text-align: center;
   width: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner .image1 {
+  width: 75vw;
+}
+
+.banner .image2 {
+  width: 75vw;
 }
