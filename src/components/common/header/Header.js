@@ -14,7 +14,8 @@ import Modal from "react-modal";
 import CancelIcon from "@mui/icons-material/Cancel";
 import IconButton from "@mui/material/IconButton";
 import { Search as SearchIcon } from "@mui/icons-material";
-
+import "../header/Header.css";
+import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 const SearchBarContainer = styled(Box)`
   display: flex;
   align-items: center;
@@ -32,19 +33,21 @@ const SearchBarContainer = styled(Box)`
   position: "relative";
 `;
 
-const CartButton = styledComponents.button`
-display: flex;
-align-items: center;
-justify-content: center;
-
- background-color:  #FF3269;
- border: none;
- outline: none;
- color: #fff;
- padding: 4px 9px; 
- border-radius: 7px;
-font-size: 16px;
-margin-left: 30px;
+const CartButton = styled(IconButton)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff3269;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 6px 7px;
+  border-radius: 7px;
+  font-size: 16px;
+  margin-left: 30px;
+  &:hover {
+    pointer-events: none;
+  }
 `;
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
@@ -59,6 +62,7 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 
 const CustomAppBar = styled(AppBar)`
   background-color: #3c006b;
+  width: 100%;
 `;
 
 const Image = styledComponents.img`
@@ -79,11 +83,65 @@ opacity: 0.5;
 background-Color: #ffffff;
 `;
 
+const PopUpSearch = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 10px;
+  height: 45px;
+  width: 98%;
+  outline: none;
+  border: 0;
+  &:focus {
+    outline: none;
+    border: 0;
+  }
+  position: "relative";
+  margin: 15px 5px;
+`;
+
+const PopSearchInput = styled(InputBase)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%",
+  outline: "none",
+  border: "none",
+  fontSize: "14px",
+  paddingLeft: theme.spacing(6),
+}));
+
+const EnableButton = styledComponents.button`
+  color:  #FF3269;
+  background: #fff;
+  border: 1px solid rgba(34,34,34,0.2);
+  letter-spacing: .1em;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+`;
+
+const LoginButton = styledComponents.a`
+   cursor: pointer;
+   margin-left: auto;
+`;
 Modal.setAppElement("#root");
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
+  const handleLoginClick = () => {
+    if (!isLogin) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  };
+
+  const handleLoginCloseModel = () => {
+    setIsLogin(false);
+  };
   const handleButtonClick = () => {
     if (!isOpen) {
       setIsOpen(true);
@@ -130,7 +188,7 @@ const Header = () => {
                 contentLabel="Popup Modal"
                 style={{
                   overlay: {
-                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    backgroundColor: "rgba(0, 0, 0, 0.8)",
                   },
                   content: {
                     width: "500px",
@@ -160,8 +218,34 @@ const Header = () => {
                     Your Location
                   </Typography>
                 </Box>
-                <p>This is the content of the popup modal.</p>
-
+                <PopUpSearch>
+                  <PopSearchInput
+                    variant="outlined"
+                    placeholder="Search a new address"
+                    onChange={(e) => handleChange(e.target.value)}
+                  />
+                  <IconButton sx={{ position: "absolute", left: "2rem" }}>
+                    <SearchIcon />
+                  </IconButton>
+                </PopUpSearch>
+                <div className="location-content">
+                  <IconButton sx={{ color: "#FF3269" }}>
+                    <GpsFixedIcon />
+                  </IconButton>
+                  <section>
+                    <p>current location</p>
+                    <p>Enable your current location for better services</p>
+                  </section>
+                  <EnableButton
+                    onClick={() =>
+                      alert(
+                        "Turn on Location Services to Allow Zepto to Determine Your Location by Clicking the Location icon in the Address bar, and then Always allow."
+                      )
+                    }
+                  >
+                    Enable
+                  </EnableButton>
+                </div>
                 <IconButton
                   onClick={handleCloseModal}
                   sx={{ position: "absolute", right: "1px", top: "3px" }}
@@ -181,10 +265,39 @@ const Header = () => {
               <SearchIcon />
             </IconButton>
           </SearchBarContainer>
-          <Typography sx={{ marginLeft: "auto" }}>Login</Typography>
+          <LoginButton onClick={handleLoginClick}>
+            {isLogin && (
+              <Modal
+                isOpen={isLogin}
+                onRequestClose={handleLoginCloseModel}
+                contentLabel="Popup Modal"
+                style={{
+                  overlay: {
+                    backgroundColor: "rgba(0, 0, 0, 0.8)",
+                  },
+                  content: {
+                    width: "500px",
+                    height: "350px",
+                    border: "1px solid #ccc",
+                    borderRadius: "10px",
+                    margin: "auto",
+                  },
+                }}
+              >
+                <input type="text" placeholder="enter your mobile no" />
+              </Modal>
+            )}
+            <Typography>Login</Typography>
+          </LoginButton>
           <CartButton>
-            <IconButton>
-              <LocalMallIcon />{" "}
+            <IconButton
+              sx={{
+                "&:hover": {
+                  pointerEvents: "none",
+                },
+              }}
+            >
+              <LocalMallIcon />
             </IconButton>
             <Typography sx={{ paddingInline: 2 }}>My Cart</Typography>
           </CartButton>

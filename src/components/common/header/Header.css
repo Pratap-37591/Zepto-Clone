@@ -1,0 +1,19 @@
+.location-content {
+  display: flex;
+  align-items: center;
+}
+
+.location-content p:first-of-type {
+  color: #ff3269;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.location-content p:last-of-type {
+  color: #222222;
+}
+
+.location-content section {
+  line-height: 0.5rem;
+  margin: 0 0.6rem;
+}
