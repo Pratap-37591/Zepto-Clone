@@ -1,5 +1,4 @@
 import React from "react";
-
 import Footer from "../../components/common/footer/Footer.js";
 // import Work from "../../components/common/howitworks/Work.js";
 import { Typography } from "@mui/material";
@@ -9,6 +8,7 @@ import Header from "../../components/common/header/Header.js";
 import Banner from "./Banner.js";
 import Carosule1 from "../../components/common/carosule/Carosule1.js";
 import Work from "../../components/common/howitworks/Work.js";
+import Categories from "../../components/common/Categories/Categories.js";
 
 const HomePage = () => {
   return (
@@ -26,6 +26,7 @@ const HomePage = () => {
         <Carosule1 />
       </div>
       <Banner />
+      <Categories />
       <Work />
       <Footer />
     </>

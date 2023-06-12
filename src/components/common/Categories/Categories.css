@@ -1,0 +1,52 @@
+.categories {
+  margin: 40px auto;
+  display: flex;
+
+  flex-direction: column;
+  /* justify-content: center;
+    align-items: center; */
+}
+
+.explore-button {
+  display: flex;
+  justify-content: space-around;
+  gap: 34rem;
+  margin-bottom: 10px;
+}
+
+.explore-button p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.buttons {
+  border: none;
+  outline: none;
+  color: crimson;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttons div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.image-container a:nth-child(1) img,
+.image-container a:nth-child(2) img {
+  width: 300px;
+  height: auto;
+}
+.image-container a:nth-child(n + 3) img {
+  height: 190px;
+}

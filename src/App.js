@@ -1,11 +1,12 @@
-import React from 'react'
-import './index.css'
-import HomePage from './pages/Home/HomePage';
+import React from "react";
+import "./index.css";
+import HomePage from "./pages/Home/HomePage";
+
 
 const App = () => {
   return (
-    <HomePage />
-  )
-}
+  <HomePage/>
+  );
+};
 
 export default App;

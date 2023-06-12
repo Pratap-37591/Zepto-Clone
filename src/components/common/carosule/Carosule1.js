@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import '../carosule/DeliveryItems/DeliveryItems.css'
+import "../carosule/DeliveryItems/DeliveryItems.css";
 const Carosule1 = () => {
   const ProductCarosule = [
     {
@@ -51,11 +51,19 @@ const Carosule1 = () => {
     },
   };
   return (
-    <Carousel responsive={responsive} style={{width:"100%",display:'flex',gap:60}}>
+    <Carousel
+      responsive={responsive}
+      style={{ width: "100%", display: "flex", gap: 60 }}
+    >
       {ProductCarosule.map((item) => {
         return (
-          <div className="container" key={item.id}  >
-            <img className="images" src={item.coverImage} alt={item.id}  style={{width:500 ,}}/>
+          <div className="container" key={item.id}>
+            <img
+              className="images"
+              src={item.coverImage}
+              alt={item.id}
+              style={{ width: 500 }}
+            />
           </div>
         );
       })}

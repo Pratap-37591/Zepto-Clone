@@ -16,6 +16,8 @@ import IconButton from "@mui/material/IconButton";
 import { Search as SearchIcon } from "@mui/icons-material";
 import "../header/Header.css";
 import GpsFixedIcon from "@mui/icons-material/GpsFixed";
+import Login from "../../Login/Login";
+
 const SearchBarContainer = styled(Box)`
   display: flex;
   align-items: center;
@@ -33,7 +35,7 @@ const SearchBarContainer = styled(Box)`
   position: "relative";
 `;
 
-const CartButton = styled(IconButton)`
+const CartButton = styledComponents.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,13 +43,11 @@ const CartButton = styled(IconButton)`
   border: none;
   outline: none;
   color: #fff;
-  padding: 6px 7px;
+  cursor: pointer;
+  padding: 10px 10px;
   border-radius: 7px;
   font-size: 16px;
   margin-left: 30px;
-  &:hover {
-    pointer-events: none;
-  }
 `;
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
@@ -267,38 +267,16 @@ const Header = () => {
           </SearchBarContainer>
           <LoginButton onClick={handleLoginClick}>
             {isLogin && (
-              <Modal
-                isOpen={isLogin}
-                onRequestClose={handleLoginCloseModel}
-                contentLabel="Popup Modal"
-                style={{
-                  overlay: {
-                    backgroundColor: "rgba(0, 0, 0, 0.8)",
-                  },
-                  content: {
-                    width: "500px",
-                    height: "350px",
-                    border: "1px solid #ccc",
-                    borderRadius: "10px",
-                    margin: "auto",
-                  },
-                }}
-              >
-                <input type="text" placeholder="enter your mobile no" />
-              </Modal>
+              <Login
+                isLogin={isLogin}
+                handleLoginCloseModel={handleLoginCloseModel}
+              />
             )}
             <Typography>Login</Typography>
           </LoginButton>
           <CartButton>
-            <IconButton
-              sx={{
-                "&:hover": {
-                  pointerEvents: "none",
-                },
-              }}
-            >
-              <LocalMallIcon />
-            </IconButton>
+            <LocalMallIcon />
+
             <Typography sx={{ paddingInline: 2 }}>My Cart</Typography>
           </CartButton>
         </Toolbar>
