@@ -10,7 +10,6 @@ import Banner from "./Banner.js";
 import Carosule1 from "../../components/common/carosule/Carosule1.js";
 import Work from "../../components/common/howitworks/Work.js";
 
-
 const HomePage = () => {
   return (
     <>
@@ -23,12 +22,11 @@ const HomePage = () => {
         <img src={require("../../assets/free1.png")} alt="" />
       </div>
       {/* <Carosule/> */}
-      <div style={{width: '90%',margin:'30px auto'}}>
-      <Carosule1/>
-
+      <div style={{ width: "90%", margin: "30px auto" }}>
+        <Carosule1 />
       </div>
-    <Banner/>
-     <Work/>
+      <Banner />
+      <Work />
       <Footer />
     </>
   );
