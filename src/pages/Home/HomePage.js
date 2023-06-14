@@ -6,9 +6,10 @@ import "../Home/Home.css";
 import Header from "../../components/common/header/Header.js";
 // import Carosule from "../../components/common/carosule/Carosule.js";
 import Banner from "./Banner.js";
-import Carosule1 from "../../components/common/carosule/Carosule1.js";
+import Carosule1 from "../../components/common/carosule/Carosule.js";
 import Work from "../../components/common/howitworks/Work.js";
 import Categories from "../../components/common/Categories/Categories.js";
+import ProductCard from "../../components/ProductCard/ProductCard.js";
 
 const HomePage = () => {
   return (
@@ -27,6 +28,9 @@ const HomePage = () => {
       </div>
       <Banner />
       <Categories />
+
+        <ProductCard />
+
       <Work />
       <Footer />
     </>

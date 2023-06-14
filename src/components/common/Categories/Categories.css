@@ -15,7 +15,7 @@
 }
 
 .explore-button p {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -49,4 +49,27 @@
 }
 .image-container a:nth-child(n + 3) img {
   height: 190px;
+}
+
+.image-container2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+margin-top: 10px;
+}
+.image-container2 a img {
+  height: 190px;
+ 
+}
+
+.CategoriesCarosule{
+  width: 70%;
+ margin: auto;
+
+}
+
+.CategoriesCarosule img{
+    display: flex;
+    gap: 0;
 }
