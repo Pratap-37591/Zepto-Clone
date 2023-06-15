@@ -9,17 +9,21 @@ import {
 import React from "react";
 import ProductCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import "../common/carosule/Carosule.css";
+import '../ProductCard/Product.css'
 import StyledComponent from "styled-components";
 import { MdDiscount } from "react-icons/md";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+
 
 const Button = StyledComponent.button`
   border: 1px solid crimson;
   color: crimson;
   background: white;
-  padding: 5px 20px;
+  padding: 7px 20px;
   border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 `;
 
 const ProductCardDetails = [
@@ -123,7 +127,7 @@ const ProductCard = () => {
         <Typography>Explore By Categories</Typography>
         <a href="/Categories" className="buttons">
           <div>
-            <span>See all</span>
+          <span>See all</span>
             <NavigateNextIcon />
           </div>
         </a>
@@ -132,14 +136,13 @@ const ProductCard = () => {
         <ProductCarousel responsive={responsive}>
           {ProductCardDetails.map((item, index) => {
             return (
-              <Box key={index}>
+              <Box key={index} sx={{ position: "relative" }}>
                 <Card
                   variant="outlined"
                   sx={{
                     maxWidth: "180px",
                     height: "250px",
                     borderRadius: "9px",
-
                     boxShadow: "0px 3px 2px rgba(0,0,0,0.1)",
                   }}
                 >
@@ -151,6 +154,7 @@ const ProductCard = () => {
                         right: 60,
                         color: "crimson",
                         fontSize: "20px",
+                        cursor: "pointer",
                       }}
                     >
                       <MdDiscount />
@@ -161,6 +165,7 @@ const ProductCard = () => {
                         top: 8,
                         right: 90,
                         color: "red",
+                        marginBottom: 1,
                       }}
                     >
                       {item.productdiscountPrice}
@@ -173,7 +178,7 @@ const ProductCard = () => {
                       image={item.productImage}
                       alt="productimage"
                     />
-                    <Typography gutterBottom variant="h5">
+                    <Typography gutterBottom variant="h6">
                       {item.productHeader}
                     </Typography>
                     <Typography>{item.productQuality}</Typography>
@@ -185,7 +190,7 @@ const ProductCard = () => {
                       alignItems: "center",
                     }}
                   >
-                    <div>
+                    <div className="product-price">
                       <Typography>{item.productStrikeoutPrice}</Typography>
                       <Typography>{item.productPrice}</Typography>
                     </div>

@@ -1,0 +1,7 @@
+.product-price p:first-of-type{
+  text-decoration: line-through;
+}
+
+.product-price p:last-of-type{
+    font-weight: bold;
+}
