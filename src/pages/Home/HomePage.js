@@ -11,10 +11,12 @@ import Work from "../../components/common/howitworks/Work.js";
 import Categories from "../../components/common/Categories/Categories.js";
 import ProductCard from "../../components/ProductCard/ProductCard.js";
 
+
 const HomePage = () => {
   return (
     <>
-      <Header />
+      <Header /> 
+      
       <div className="sub-header">
         <img src={require("../../assets/free.png")} alt="" />
         <Typography>
@@ -29,7 +31,9 @@ const HomePage = () => {
       <Banner />
       <Categories />
 
-        <ProductCard />
+     
+    <ProductCard/>
+      
 
       <Work />
       <Footer />
