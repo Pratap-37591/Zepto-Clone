@@ -9,11 +9,10 @@ import {
 import React from "react";
 import ProductCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import '../ProductCard/Product.css'
+import "../ProductCard/Product.css";
 import StyledComponent from "styled-components";
 import { MdDiscount } from "react-icons/md";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-
 
 const Button = StyledComponent.button`
   border: 1px solid crimson;
@@ -120,6 +119,10 @@ const responsive = {
     items: 1,
   },
 };
+const handleNavigate = () => {
+  window.location.href = "/ProductDetails";
+};
+
 const ProductCard = () => {
   return (
     <>
@@ -127,7 +130,7 @@ const ProductCard = () => {
         <Typography>Explore By Categories</Typography>
         <a href="/Categories" className="buttons">
           <div>
-          <span>See all</span>
+            <span>See all</span>
             <NavigateNextIcon />
           </div>
         </a>
@@ -144,6 +147,7 @@ const ProductCard = () => {
                     height: "250px",
                     borderRadius: "9px",
                     boxShadow: "0px 3px 2px rgba(0,0,0,0.1)",
+                    cursor: "pointer",
                   }}
                 >
                   <CardContent>
@@ -195,7 +199,9 @@ const ProductCard = () => {
                       <Typography>{item.productPrice}</Typography>
                     </div>
                     <CardActions>
-                      <Button>{item.productAdd}</Button>
+                      <Button onClick={handleNavigate}>
+                        {item.productAdd}
+                      </Button>
                     </CardActions>
                   </Box>
                 </Card>
