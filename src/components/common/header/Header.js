@@ -63,11 +63,12 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 const CustomAppBar = styled(AppBar)`
   background-color: #3c006b;
   width: 100%;
+  height: 9vh;
 `;
 
 const Image = styledComponents.img`
 width: 100px;
-height: 66px;
+height: 69px;
 margin-left: 40px;
 
 `;
